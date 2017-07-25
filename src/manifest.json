@@ -1,0 +1,25 @@
+{
+  "name": "Fuel Price",
+  "short_name": "Fuel Price",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff",
+  "theme_color": "#228de2",
+  "gcm_sender_id": "675537604037",
+  "icons": [{
+    "src": "/assets/icons/android-chrome-192x192.png",
+    "type": "image/png",
+    "sizes": "192x192"
+  },
+  {
+    "src": "/assets/icons/android-chrome-256x256.png",
+    "type": "image/png",
+    "sizes": "256x256"
+  },
+  {
+    "src": "/assets/icons/android-chrome-512x512.png",
+    "type": "image/png",
+    "sizes": "512x512"
+  }]
+}

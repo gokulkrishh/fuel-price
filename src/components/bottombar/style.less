@@ -1,0 +1,50 @@
+@import '~style/helpers';
+
+.bottombar {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 56px;
+	padding: 0;
+	background-color: #fff;
+	box-shadow: -2px 0 3px rgba(0, 0, 0, 0.12);
+	z-index: 50;
+	display: none;
+	align-items: center;
+  justify-content: space-around;
+  color: #fff;
+  user-select: none;
+
+  svg {
+    margin-bottom: 3px;
+  }
+
+  a {
+  	color: #4A4A4A;
+  	text-decoration: none;
+  	font-weight: 400;
+  	font-size: 12px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    outline: 0;
+
+  	&.active {
+  		font-size: 13px;
+  		font-weight: 500;
+  		color: @primary-color-dark;
+  	}
+
+    &.active > svg {
+      fill: @primary-color-dark;
+    }
+  }
+}
+
+@media all and (max-width: 480px) { 
+	.bottombar {
+		display: flex;
+	}
+}

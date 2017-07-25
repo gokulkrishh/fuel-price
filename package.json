@@ -1,0 +1,32 @@
+{
+  "name": "fuel-app",
+  "version": "1.0.0",
+  "description": "Know the fuel prices throughout the India.",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint src && preact test",
+    "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
+    "build": "preact build --no-prerender && cat ./src/sw-push.js >> ./build/sw.js",
+    "serve": "preact build --no-prerender && preact serve",
+    "dev": "preact watch",
+    "deploy": "cd build && surge --domain https://fp.surge.sh"
+  },
+  "author": "https://github.com/gokulkrishh",
+  "license": "MIT",
+  "eslintConfig": {
+    "extends": "eslint-config-synacor"
+  },
+  "devDependencies": {
+    "eslint": "^4.1.1",
+    "eslint-config-synacor": "^1.0.1",
+    "if-env": "^1.0.0",
+    "preact-cli": "^1.4.0"
+  },
+  "dependencies": {
+    "localforage": "^1.5.0",
+    "preact": "^8.1.0",
+    "preact-compat": "^3.16.0",
+    "preact-router": "^2.5.2",
+    "promise-polyfill": "^6.0.2"
+  }
+}

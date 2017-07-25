@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="250px" height="250px" viewBox="0 0 250 250" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>Empty list</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Empty-list">
+            <circle id="Oval-2" cx="125" cy="125" r="125"></circle>
+            <g id="ic_label_black_24px" transform="translate(41.000000, 38.000000)">
+                <g id="Group">
+                    <polygon id="Shape" points="3.29691829e-12 0 175 0 175 175 3.29691829e-12 175"></polygon>
+                    <path d="M128.552083,42.5833333 C125.927083,38.8645833 121.552083,36.4583333 116.666667,36.4583333 L36.4583333,36.53125 C28.4375,36.53125 21.875,43.0208333 21.875,51.0416667 L21.875,123.958333 C21.875,131.979167 28.4375,138.46875 36.4583333,138.46875 L116.666667,138.541667 C121.552083,138.541667 125.927083,136.135417 128.552083,132.416667 L160.416667,87.5 L128.552083,42.5833333 L128.552083,42.5833333 Z" id="Shape" fill="#4990E2"></path>
+                </g>
+            </g>
+            <path d="M40.0821036,188.70398 L200.085298,77.2410807 L40.0821036,188.70398 Z" id="Line" stroke="#FFFFFF" stroke-width="11" stroke-linecap="square" fill="#FFFFFF" transform="translate(120.083701, 132.972530) rotate(-11.000000) translate(-120.083701, -132.972530) "></path>
+            <path d="M34.0821036,179.70398 L194.085298,68.2410807 L34.0821036,179.70398 Z" id="Line" stroke="#4A90E2" stroke-width="11" stroke-linecap="square" transform="translate(114.083701, 123.972530) rotate(-11.000000) translate(-114.083701, -123.972530) "></path>
+        </g>
+    </g>
+</svg>

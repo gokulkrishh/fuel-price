@@ -1,0 +1,34 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "./server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "NODE_ENV=dev && nodemon server.js",
+    "inspect": "node --inspect --debug-brk server.js",
+    "test": "mocha --timeout 500000",
+    "lint": "eslint **/*.js",
+    "deploy": "now --public"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "chai-http": "^3.0.0",
+    "eslint": "^4.2.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.7.0",
+    "mocha": "^3.4.2",
+    "nodemon": "^1.11.0"
+  },  
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "compression": "^1.7.0",
+    "express": "^4.15.3",
+    "is-empty": "^1.2.0",
+    "mongoose": "^4.11.1",
+    "node-fetch": "^1.7.1",
+    "node-gcm": "^0.14.6",
+    "node-schedule": "^1.2.3",
+    "xml2json": "^0.11.0"
+  }
+}

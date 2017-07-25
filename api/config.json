@@ -1,0 +1,6 @@
+{
+  "mongoDBClientUrl": "",
+  "mongoDBAjaxUrl": "",
+  "crawlerUrl": "",
+  "gcmApiKey": ""
+}
