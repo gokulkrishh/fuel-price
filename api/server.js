@@ -11,7 +11,7 @@ const app = express();
 // Changing timezone in app level
 process.env.TZ = "Asia/Kolkata";
 
-// Get config 
+// Get config
 const config = require("./config.json");
 
 // Require models
@@ -20,6 +20,7 @@ const notificationsModel = require("./models/notifications"); /* eslint no-unuse
 const fuelPriceCrawler = require("./crawler/fuelPrice");
 
 // Connect with mongodb client
+mongoose.Promise = global.Promise; // To avoid mongoose promise deprecation msg
 mongoose.connect(`${config.mongoDBClientUrl}`, { useMongoClient: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind("console", "DB connection error:"));
@@ -46,8 +47,13 @@ app.use((req, res, next) => {
   }
   else {
     res.setHeader("Cache-Control", "public, max-age=86400");
-  }
-  res.setHeader("Access-Control-Allow-Origin", "*");
+	}
+
+	if (req.method === "OPTIONS") {
+		res.setHeader("Access-Control-Max-Age", "1728000"); // To avoid preflight request everytime
+	}
+
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
   res.setHeader("Access-Control-Allow-Methods", "GET, PUT, POST");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Cache-Control");
   next();
