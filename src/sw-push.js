@@ -14,7 +14,7 @@ self.addEventListener("push", (event) => {
   console.log("Event: Push", event);
   event.waitUntil(
     getEndpoint().then(endpoint => {
-      return fetch(`https://worried-food.glitch.me//getpayload?endpoint=${endpoint}`, {cache: "no-cache"})
+      return fetch(`https://worried-food.glitch.me/getpayload?endpoint=${endpoint}`, {cache: "no-cache"})
     })
     .then(response => response.json())
     .then(response => {
