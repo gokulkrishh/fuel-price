@@ -53,7 +53,7 @@ app.use((req, res, next) => {
 		res.setHeader("Access-Control-Max-Age", "1728000"); // To avoid preflight request everytime
 	}
 
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, PUT, POST");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Cache-Control");
   next();
