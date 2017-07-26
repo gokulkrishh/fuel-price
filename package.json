@@ -4,7 +4,7 @@
   "description": "Know the fuel prices throughout the India.",
   "main": "index.js",
   "scripts": {
-    "test": "eslint src && preact test",
+    "test": "eslint src",
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
     "build": "preact build --no-prerender && cat ./src/sw-push.js >> ./build/sw.js",
     "serve": "preact build --no-prerender && preact serve",

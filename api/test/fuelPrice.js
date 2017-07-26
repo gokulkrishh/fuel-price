@@ -1,15 +1,14 @@
 process.env.NODE_ENV = "test";
+
 const chai = require("chai");
 const chaiHttp = require("chai-http");
-// const fuelPriceCrawler = require("../crawler/fuelPrice");
 const server = require("../server");
 
 const should = chai.should(); /* eslint no-unused-vars: 0 */
-
 chai.use(chaiHttp); // Use HTTP
 
 describe("/GET fuel price", () => {
-  it("it should GET all the states fuel prices", (done) => {
+  it("GET all the states fuel prices", (done) => {
     chai.request(server)
       .get("/fuelprice/all")
       .end((err, res) => {
@@ -19,7 +18,7 @@ describe("/GET fuel price", () => {
       });
   });
 
-  it("it should GET one state fuel price", (done) => {
+  it("GET one state fuel price", (done) => {
     chai.request(server)
       .get("/fuelprice/ka")
       .end((err, res) => {
@@ -30,7 +29,7 @@ describe("/GET fuel price", () => {
       });
   });
 
-  it("it should GET current location", (done) => {
+  it("GET current location", (done) => {
     chai.request(server)
       .get("/location")
       .end((err, res) => {
@@ -38,6 +37,6 @@ describe("/GET fuel price", () => {
         res.body.should.be.a("object");
         done();
       });
-  });
+	});
 });
 
