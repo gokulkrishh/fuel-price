@@ -1,4 +1,4 @@
 {
-  "apiUrl": "http://localhost:8000",
-  "geoApiUrl": "https://freegeoip.net/json/"
+	"apiUrl": "http://localhost:8000",
+	"geoApiUrl": "https://freegeoip.net/json/"
 }

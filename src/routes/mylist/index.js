@@ -95,7 +95,6 @@ export default class MyList extends Component {
 			myList = {};
 		}
 		const options = {};
-		console.log("fromPush --->", fromPush);
 		if (fromPush) {
 			options.headers = {
 				"cache-control": "no-cache"
