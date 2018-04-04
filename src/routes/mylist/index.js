@@ -76,9 +76,9 @@ export default class MyList extends Component {
 			.then(response => response.json())
 			.then(data => {
 				if (!isEmpty(data)) {
-					let { country_name, region_code } = data;
-					if (country_name === "India" && region_code !== "") {
-						this.fetchCurrentStateFuel(region_code, false);
+					let { country_name, region_name } = data;
+					if (country_name === "India" && region_name !== "") {
+						this.fetchCurrentStateFuel(region_name, false);
 					} else {
 						this.setState({
 							myList: {},
@@ -89,7 +89,7 @@ export default class MyList extends Component {
 			});
 	}
 
-	fetchCurrentStateFuel(regionCode, fromPush) {
+	fetchCurrentStateFuel(regionName, fromPush) {
 		let { myList } = this.state;
 		if (!myList) {
 			myList = {};
@@ -102,7 +102,7 @@ export default class MyList extends Component {
 			toast(`Fetching data please wait...`, 3000);
 		}
 
-		fetch(`${config.apiUrl}/fuelprice/${regionCode}`, options)
+		fetch(`${config.apiUrl}/fuelprice/${regionName}`, options)
 			.then(response => response.json())
 			.then(response => {
 				const [newResponse] = response;
