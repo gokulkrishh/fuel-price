@@ -149,7 +149,7 @@ export default class MyList extends Component {
 		return (
 			<div class="cards">
 				<h3>
-					{data.district.toLowerCase()} {this.htmlRemoveIcon(data.state, stateCode)}
+					{data.district.toLowerCase()} {this.htmlRemoveIcon(data.district, data.stateCode)}
 				</h3>
 				<div>
 					<b>Petrol</b>: ₹ <span>{data.petrol}</span>
@@ -161,25 +161,25 @@ export default class MyList extends Component {
 		);
 	}
 
-	htmlRemoveIcon(townName, stateCode) {
+	htmlRemoveIcon(district, stateCode) {
 		return (
 			<span class="cards__actions">
-				<i onClick={this.removeCityFromMyList.bind(this, townName, stateCode)} />
+				<i onClick={this.removeCityFromMyList.bind(this, district, stateCode)} />
 			</span>
 		);
 	}
 
-	removeCityFromMyList(townName, stateCode) {
+	removeCityFromMyList(district, stateCode) {
 		const { myList } = this.state;
-		if (!isEmpty(myList) && (townName && stateCode)) {
+		if (!isEmpty(myList) && (district && stateCode)) {
 			const currentState = myList[stateCode];
-			currentState.result = currentState.result.filter(state => state.townname !== townName);
+			currentState.result = currentState.result.filter(state => state.district !== district);
 			if (currentState.result.length === 0) {
 				this.removeFromMyList(stateCode);
 			} else {
 				this.setState({ myList }, () => {
 					localForage.setItem("myList", myList);
-					toast(`${townName} is removed from your list`);
+					toast(`${district} is removed from your list`);
 				});
 			}
 		}
@@ -288,7 +288,7 @@ export default class MyList extends Component {
 						height="24"
 						viewBox="0 0 24 24"
 						width="24"
-						onClick={this.togglePushSubscription.bind(this, "Unsubscribe", data.stateCode)}
+						onClick={this.togglePushSubscription.bind(this, "Unsubscribe", data.state)}
 					>
 						<path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
 					</svg>
@@ -299,7 +299,7 @@ export default class MyList extends Component {
 						height="24"
 						viewBox="0 0 24 24"
 						width="24"
-						onClick={this.togglePushSubscription.bind(this, "Subscribe", data.stateCode)}
+						onClick={this.togglePushSubscription.bind(this, "Subscribe", data.state)}
 					>
 						<path d="M20 18.69L7.84 6.14 5.27 3.49 4 4.76l2.8 2.8v.01c-.52.99-.8 2.16-.8 3.42v5l-2 2v1h13.73l2 2L21 19.72l-1-1.03zM12 22c1.11 0 2-.89 2-2h-4c0 1.11.89 2 2 2zm6-7.32V11c0-3.08-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68c-.15.03-.29.08-.42.12-.1.03-.2.07-.3.11h-.01c-.01 0-.01 0-.02.01-.23.09-.46.2-.68.31 0 0-.01 0-.01.01L18 14.68z" />
 					</svg>
@@ -310,7 +310,7 @@ export default class MyList extends Component {
 
 	htmlFavIcon(data) {
 		return (
-			<div class="add-to-card" onClick={this.removeFromMyList.bind(this, data.stateCode)}>
+			<div class="add-to-card" onClick={this.removeFromMyList.bind(this, data.state.toLowerCase())}>
 				<svg fill="#4A4A4A" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 					<path d="M0 0h24v24H0z" fill="none" />
 					<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />

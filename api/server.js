@@ -64,9 +64,8 @@ routes(app);
 const server = app.listen(port, () => {
 	console.log(`Server is running..`);
 	// Fetch fuel price daily at 6AM and store in DB
-	schedule.scheduleJob("* 30 8 * * *", () => {
-		fuelPriceCrawler.saveToDB();
-	});
+	fuelPriceCrawler.saveToDB();
+	schedule.scheduleJob("* 30 8 * * *", () => {});
 });
 
 module.exports = server;

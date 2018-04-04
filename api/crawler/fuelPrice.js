@@ -67,7 +67,10 @@ exports.saveToDB = () => {
 						if (response && response.location && response.districts.length > 0) {
 							const newFuelPrice = new FuelPrice({
 								state: response.location,
-								result: response.districts
+								result: response.districts.map(district => {
+									district.stateCode = stateName;
+									return district;
+								})
 							});
 							newFuelPrice.save(error => {
 								if (error) console.log("Error occurred while saving fuel price data", error);
