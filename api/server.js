@@ -37,26 +37,24 @@ app.use(compression());
 
 // Allowing access to all origin
 app.use((req, res, next) => {
-  if (req.method === "GET") {
-    if (url.parse(req.originalUrl).pathname === "/getpayload") {
-      res.setHeader("Cache-Control", "no-cache");
-    }
-    else {
-      res.setHeader("Cache-Control", "public, max-age=21600");
-    }
-  }
-  else {
-    res.setHeader("Cache-Control", "public, max-age=86400");
+	if (req.method === "GET") {
+		if (url.parse(req.originalUrl).pathname === "/getpayload") {
+			res.setHeader("Cache-Control", "no-cache");
+		} else {
+			res.setHeader("Cache-Control", "public, max-age=21600");
+		}
+	} else {
+		res.setHeader("Cache-Control", "public, max-age=86400");
 	}
 
 	if (req.method === "OPTIONS") {
 		res.setHeader("Access-Control-Max-Age", "1728000"); // To avoid preflight request everytime
 	}
 
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, PUT, POST");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Cache-Control");
-  next();
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Methods", "GET, PUT, POST");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Cache-Control");
+	next();
 });
 
 // Adding the routes
@@ -64,11 +62,10 @@ routes(app);
 
 // Listening to port
 const server = app.listen(port, () => {
-  console.log(`Server is running..`);
-  // Fetch fuel price daily at 6AM and store in DB
-  schedule.scheduleJob("* 30 8 * * *", () => {
-    fuelPriceCrawler.saveToDB();
-  });
+	console.log(`Server is running..`);
+	// Fetch fuel price daily at 6AM and store in DB
+	fuelPriceCrawler.saveToDB();
+	schedule.scheduleJob("* 30 8 * * *", () => {});
 });
 
 module.exports = server;
