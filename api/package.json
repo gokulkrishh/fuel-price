@@ -25,7 +25,7 @@
     "compression": "^1.7.0",
     "express": "^4.15.3",
     "is-empty": "^1.2.0",
-    "mongoose": "^4.11.1",
+    "mongoose": "^5.9.9",
     "node-fetch": "^1.7.1",
     "node-gcm": "^0.14.6",
     "node-schedule": "^1.2.3",
